@@ -112,10 +112,6 @@ ____
    - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better suite your needs
 
-```bash
-npm run dev
-```
-
 ## Developing Locally
 
 To work on the project locally (with Eslint, Stylelint & Prettier active), run:
