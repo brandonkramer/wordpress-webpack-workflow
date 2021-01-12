@@ -27,17 +27,17 @@ ____
 >- **Sass to CSS conversion** using Webpack's [**sass-loader**](https://webpack.js.org/loaders/sass-loader/)
 >- Includes [**Sass magic importer**](https://github.com/maoberlehner/node-sass-magic-importer) to do lot of fancy things with Sass @import statements
 >- **Minification** in production mode handled by Webpack 
->- [**PostCSS**](http://postcss.org/) for during post CSS transformation which has a bunch of handy tools
+>- [**PostCSS**](http://postcss.org/) for handy tools during post CSS transformation 
 >- **Auto-prefixing** using PostCSS's [**autoprefixer**](https://github.com/postcss/autoprefixer) to parse CSS and add vendor prefixes to CSS rules using values from [Can I Use](https://caniuse.com/). It is [recommended](https://developers.google.com/web/tools/setup/setup-buildtools#dont_trip_up_with_vendor_prefixes) by Google and used in Twitter and Alibaba.
->- [**PurgeCSS**](https://github.com/FullHuman/purgecss) to remove unused selectors from your css, resulting in smaller css files when in production mode.
+>- [**PurgeCSS**](https://github.com/FullHuman/purgecss) which scans your php (template) files to remove unused selectors from your css when in production mode, resulting in smaller css files.
 >- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
 >- [**Stylelint**](https://stylelint.io/) that helps you avoid errors and enforce conventions in your styles. It includes a [linting tool for Sass](https://github.com/kristerkari/stylelint-scss).
 
 **JavaScript**
->- [**BabelJS**](https://babeljs.io/) to use next generation Javascript with a  **BabelJS Configuration file**
+>- [**BabelJS**](https://babeljs.io/) Webpack loader to use next generation Javascript with a  **BabelJS Configuration file**
 >- [**Concatenation**](https://webpack.js.org/plugins/module-concatenation-plugin/) in production mode handled by Webpack
 >- **Minification** in production mode 
->- [**Code Splitting**](https://webpack.js.org/guides/code-splitting/) being able to structure JavaScript code into modules & bundles
+>- [**Code Splitting**](https://webpack.js.org/guides/code-splitting/), being able to structure JavaScript code into modules & bundles
 >- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
 >- [**ESLint**](https://eslint.org/) find and fix problems in your JavaScript code with a  **linting configuration** 
 >- [**Prettier**](https://prettier.io/) for automatic JavaScript / TypeScript code **formatting** 
@@ -51,7 +51,7 @@ ____
 
 >- [**WP-Pot**](https://github.com/wp-pot/wp-pot-cli) scans all the files and generates `.pot` file automatically for i18n and l10n
 
-**BrowserSync, Watching & WebpackBar**
+**BrowserSync, Watcher & WebpackBar**
 
 >- [**Watch Mode**](https://webpack.js.org/guides/development/#using-watch-mode), watches for changes in files to recompile
 >- _File types: `.css`, `.html`, `.php`, `.js`_
@@ -79,11 +79,11 @@ ____
 └──assets
     ├── src                      # Holds all the source files
     │   ├── scss                 # Holds the SCSS files
-    │   │ ├─ frontend.scss       # Meant for front-end styling
-    │   │ └─ backend.scss        # Meant for back-end styling
-    │   └── js                   # Holds the SCSS files
-    │     ├─ frontend.js         # Meant for back-end scripting
-    │     └─ backend.js          # Meant for back-end scripting
+    │   │ ├─ frontend.scss      
+    │   │ └─ backend.scss       
+    │   └── js                   # Holds the JS files
+    │     ├─ frontend.js         
+    │     └─ backend.js          
     │
     └── public
         ├── css                  # Compiled CSS files with be generated here
@@ -91,7 +91,8 @@ ____
 ```
 ## What to configure
 1. Edit the translate script in package.json to change the destination file which should be in sync with `languages/wordpress-webpack.pot`, the text domain which wp-pot will scan and use to generate the pot file, package/last-translator/team/bug-report to edit the POT information data
-2. Edit the BrowserSync settings in `webpack.config.js` which is applicable to your local/server environment
+2. Edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
+   - You can also disable BrownserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better suite your needs
 
 ## Developing Locally
