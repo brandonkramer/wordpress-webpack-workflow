@@ -323,7 +323,7 @@ npm run prettier:fix
 	</tr>
 	<tr>
 		<td>sass</td>
-		<td>SASS Package</td>
+		<td>To make Sass work with node</td>
 		<td>1.32.2</td>
 		<td>Yes</td>
 	</tr>
