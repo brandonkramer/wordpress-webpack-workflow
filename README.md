@@ -40,7 +40,7 @@ ____
 >- **Minification** in production mode
 >- [**Code Splitting**](https://webpack.js.org/guides/code-splitting/), being able to structure JavaScript code into modules & bundles
 >- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
->- [**ESLint**](https://eslint.org/) find and fix problems in your JavaScript code with a  **linting configuration**
+>- [**ESLint**](https://eslint.org/) find and fix problems in your JavaScript code with a  **linting configuration** including configurations and custom rules for WordPress development.
 >- [**Prettier**](https://prettier.io/) for automatic JavaScript / TypeScript code **formatting**
 
 **Images**
@@ -209,7 +209,7 @@ npm run prettier:fix
 	<thead>
 	<tr>
 		<th></th>
-		<th>Eslint</th>
+		<th>Eslint & prettier</th>
 		<th></th>
 	</tr>
 	</thead>
@@ -234,15 +234,6 @@ npm run prettier:fix
 		<td>ESLint plugin including configurations and custom rules for WordPress development.</td>
 		<td>7.4.0</td>
 	</tr>
-    </tbody>
-	<thead>
-	<tr>
-		<th></th>
-		<th>Prettier</th>
-		<th></th>
-	</tr>
-	</thead>
-	<tbody>
 	<tr>
 		<td>prettier</td>
 		<td>For automatic JavaScript / TypeScript code formatting</td>
