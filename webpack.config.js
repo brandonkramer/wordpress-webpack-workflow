@@ -8,12 +8,25 @@ const path = require( 'path' );
 // Paths to find our files and provide BrowserSync functionality.
 const projectPaths = {
     projectDir:      __dirname, // Current project directory absolute path.
-    projectUrl:      'wp-strap.lndo.site/wordpress', // Used for providing BrowserSync functionality.
-    projectPath:     'wp-content/plugins/test-plugin', // Project path relative to project root.
     projectJsPath:   path.resolve( __dirname, 'assets/src/js' ),
     projectScssPath: path.resolve( __dirname, 'assets/src/scss' ),
     projectOutput:   path.resolve( __dirname, 'assets/public' ),
     projectWebpack:  path.resolve( __dirname, 'webpack' ),
+    // BrowserSync settings
+    browserSync: {
+        enable: true, // enable or disable browserSync
+        host:   'localhost',
+        port: 3000,
+        mode:   'proxy', // proxy | server
+        server: { baseDir: [ 'public' ] }, // can be ignored if using proxy
+        proxy:  'https://wp-strap.lndo.site',
+        // BrowserSync will automatically watch for changes to any files connected to our entry,
+        // including both JS and Sass files. We can use this property to tell BrowserSync to watch
+        // for other types of files, in this case PHP files, in our project.
+        files: '**/**/**.php',
+        reload: true, // Set false to prevent BrowserSync from reloading and let Webpack Dev Server take care of this
+        // browse to http://localhost:3000/ during development,
+    }
 };
 
 // Javascript files to bundle
