@@ -57,12 +57,20 @@ ____
 >- [**Watch Mode**](https://webpack.js.org/guides/development/#using-watch-mode), watches for changes in files to recompile
 >- _File types: `.css`, `.html`, `.php`, `.js`_
 >- [**BrowserSync**](https://browsersync.io/), synchronising URLs, interactions and code changes across devices and automatically refreshes all the browsers on al devices
->- [**webPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
+>- [**WebPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
 
 **Configuration**
 
 >- All configuration files `.prettierrc.js`, `.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js` are organised in a single folder
 >- The Webpack configuration is divided into 2 sub configuration files for the development and production build/environment
+
+<table>
+<thead>
+<tr>
+<td>Dependency</td>
+</tr>
+</thead>
+</table>
 
 ## Requirements
 
@@ -101,8 +109,7 @@ ____
 ## What to configure
 1. Edit the translate script in package.json to change the destination file which should be in sync with `languages/wordpress-webpack.pot`, the text domain which wp-pot will scan and use to generate the pot file, package/last-translator/team/bug-report to edit the POT information data
 2. Edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
-   - You can also disable BrownserSync, Eslint & Stylelint in `webpack.config.js`
-   
+   - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better suite your needs
 
 ```bash
