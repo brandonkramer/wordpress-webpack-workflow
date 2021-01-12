@@ -33,7 +33,6 @@ const projectPaths = {
 // Javascript files to bundle
 const projectFiles = {
     projectJs:     {
-        babelJs:  __dirname + '/webpack/.eslintrc.js',
         eslint:   true, // enable or disable eslint  | this is only enabled in development env.
         filename: 'js/[name].js',
         entry:    {
