@@ -1,4 +1,4 @@
-# WordPress Webpack Workflow
+# WordPress Webpack v5 Workflow
 
 
 ![WebPack 5.12.3](https://img.shields.io/badge/WebPack-5.12.3-brightgreen)
@@ -18,7 +18,7 @@
   
 </table>
 
-Includes WebPack, BrowserSync, PostCSS/Autoprefixer, PurgeCSS, BabelJS, Eslint, Stylelint, SCSS processor, WPPot, an organized config & file structure and more.
+Includes WebPack v5, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autoprefixer, Eslint, Stylelint, SCSS processor, WPPot, an organized config & file structure and more.
 ____
 ## Features & benefits
 
@@ -60,7 +60,8 @@ ____
 >- [**webPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
 
 **Configuration**
->- All configuration files (`.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js`) are organised in a single folder
+
+>- All configuration files `.prettierrc.js`, `.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js` are organised in a single folder
 >- The Webpack configuration is divided into 2 sub configuration files for the development and production build/environment
 
 ## Requirements
@@ -73,6 +74,7 @@ ____
 ├──package.json                  # Node.js dependencies & scripts (NPM functions)
 ├──webpack.config.js             # Holds al the base Webpack configurations
 ├──webpack                       # Folder that holds all the config files
+│   ├── .prettierrc.js           # Configuration for Prettier
 │   ├── .eslintrc.js             # Configuration for Eslint
 │   ├── .stylelintrc.js          # Configuration for Stylelint
 │   ├── babel.config.js          # Configuration for BabelJS
