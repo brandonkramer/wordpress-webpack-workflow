@@ -175,16 +175,25 @@ npm run prettier:fix
 		<th>Version</th>
 	</tr>
 	</thead>
+	</tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>BabelJS</th>
+		<th></th>
+	</tr>
+	</thead>
 	<tbody>
+	<tbody>
+	<tr>
+		<td>babel-loader</td>
+		<td>This package allows transpiling JavaScript files using Babel and webpack.</td>
+		<td>8.2.2</td>
+	</tr>
 	<tr>
 		<td>@babel/core</td>
 		<td>Babel compiler core for the Webpack babel loader</td>
 		<td>7.12.10</td>
-	</tr>
-	<tr>
-		<td>@babel/eslint-parser</td>
-		<td>Allows you to lint ALL valid Babel code with Eslint</td>
-		<td>7.12.1</td>
 	</tr>
 	<tr>
 		<td>@babel/polyfill</td>
@@ -196,21 +205,145 @@ npm run prettier:fix
 		<td>A smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms are needed by your target environment(s).</td>
 		<td>7.12.11</td>
 	</tr>
+	</tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Eslint</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>eslint</td>
+		<td>Find and fix problems in your JavaScript code with a linting configuration</td>
+		<td>7.17.0</td>
+	</tr>
+<tr>
+		<td>eslint-webpack-plugin</td>
+		<td>Make eslint work with Webpack during compiling</td>
+		<td>2.4.1</td>
+	</tr>
+	<tr>
+		<td>@babel/eslint-parser</td>
+		<td>Allows you to lint ALL valid Babel code with Eslint</td>
+		<td>7.12.1</td>
+	</tr>
 	<tr>
 		<td>@wordpress/eslint-plugin</td>
 		<td>ESLint plugin including configurations and custom rules for WordPress development.</td>
 		<td>7.4.0</td>
+	</tr>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Prettier</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>prettier</td>
+		<td>For automatic JavaScript / TypeScript code formatting</td>
+		<td>2.2.1</td>
+	</tr>
+</tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>CSS, Sass (compiler) & PurgeCSS</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>css-loader</td>
+		<td>Needed in Webpack to load and process CSS</td>
+		<td>5.0.1</td>
+	</tr>
+    <tr>
+		<td>mini-css-extract-plugin</td>
+		<td>Webpack normally loads CSS from out JavaScript. Since we're working with WordPress we need the CSS files separately. This will make that happen.</td>
+		<td>1.3.3</td>
+	</tr>
+	<tr>
+		<td>sass</td>
+		<td>To make Sass work with node</td>
+		<td>1.32.2</td>
+	</tr>
+	<tr>
+		<td>sass-loader</td>
+		<td>Sass loader for Webpack to compile to CSS</td>
+		<td>10.1.0</td>
+	</tr>
+	<tr>
+		<td>node-sass-magic-importer</td>
+		<td>To do lot of fancy things with Sass @import statements</td>
+		<td>5.3.2</td>
+	</tr>
+	<tr>
+		<td>purgecss-webpack-plugin</td>
+		<td>Scans your php (template) files to remove unused selectors from your css when in production mode, resulting in smaller css files.</td>
+		<td>3.1.3</td>
+	</tr>
+	</tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>PostCSS & Autoprefixer</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+		<td>postcss</td>
+		<td>To make use of great tools during post CSS transformation</td>
+		<td>8.2.4</td>
+	</tr>
+	<tr>
+		<td>postcss-loader</td>
+		<td>Loader to process CSS with PostCSS.for Webpack</td>
+		<td>4.1.0</td>
 	</tr>
 	<tr>
 		<td>autoprefixer</td>
 		<td>To parse CSS and add vendor prefixes to CSS rules using values from Can I Use.</td>
 		<td>10.2.1</td>
 	</tr>
+</tbody>
+	<thead>
 	<tr>
-		<td>babel-loader</td>
-		<td>This package allows transpiling JavaScript files using Babel and webpack.</td>
-		<td>8.2.2</td>
+		<th></th>
+		<th>Stylelint</th>
+		<th></th>
 	</tr>
+	</thead>
+	<tbody>
+    <tr>
+		<td>stylelint</td>
+		<td>Helps you avoid errors and enforce conventions in your styles</td>
+		<td>1.32.2</td>
+	</tr>
+	<tr>
+		<td>stylelint-scss</td>
+		<td>Extra stylelint rules for Sass</td>
+		<td>3.18.0</td>
+	</tr>
+	<tr>
+		<td>stylelint-webpack-plugin</td>
+		<td>Make stylelint work with webpack during compiling</td>
+		<td>2.1.1</td>
+	</tr>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>BrowserSync</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
 	<tr>
 		<td>browser-sync</td>
 		<td>Synchronising URLs, interactions and code changes across devices and automatically refreshes all the browsers on al devices</td>
@@ -221,27 +354,16 @@ npm run prettier:fix
 		<td>Makes it possible to use BrowserSync in Webpack</td>
 		<td>2.3.0</td>
 	</tr>
+	</tbody>
+	<thead>
 	<tr>
-		<td>css-loader</td>
-		<td>Needed in Webpack to load and process CSS</td>
-		<td>5.0.1</td>
+		<th></th>
+		<th>Optimize images</th>
+		<th></th>
 	</tr>
-	<tr>
-		<td>eslint</td>
-		<td>Find and fix problems in your JavaScript code with a linting configuration</td>
-		<td>7.17.0</td>
-	</tr>
-	<tr>
-		<td>eslint-webpack-plugin</td>
-		<td>Make eslint work with Webpack during compiling</td>
-		<td>2.4.1</td>
-	</tr>
-	<tr>
-		<td>glob-all</td>
-		<td>Provides a similar API to glob, however instead of a single pattern, you may also use arrays of patterns. Used to glob multiple files in one of the configuration files</td>
-		<td>3.2.1</td>
-	</tr>
-	<tr>
+	</thead>
+	<tbody>
+    <tr>
 		<td>image-minimizer-webpack-plugin</td>
 		<td>Uses imagemin to optimize your images.</td>
 		<td>2.2.0</td>
@@ -266,61 +388,16 @@ npm run prettier:fix
 		<td>Needed for the image optimizer to work with SVG</td>
 		<td>8.0.0</td>
 	</tr>
+
+  </tbody>
+	<thead>
 	<tr>
-		<td>mini-css-extract-plugin</td>
-		<td>Webpack normally loads CSS from out JavaScript. Since we're working with WordPress we need the CSS files separately. This will make that happen.</td>
-		<td>1.3.3</td>
+		<th></th>
+		<th>Webpack </th>
+		<th></th>
 	</tr>
-	<tr>
-		<td>node-sass-magic-importer</td>
-		<td>To do lot of fancy things with Sass @import statements</td>
-		<td>5.3.2</td>
-	</tr>
-	<tr>
-		<td>postcss</td>
-		<td>To make use of great tools during post CSS transformation</td>
-		<td>8.2.4</td>
-	</tr>
-	<tr>
-		<td>postcss-loader</td>
-		<td>Loader to process CSS with PostCSS.for Webpack</td>
-		<td>4.1.0</td>
-	</tr>
-	<tr>
-		<td>prettier</td>
-		<td>For automatic JavaScript / TypeScript code formatting</td>
-		<td>2.2.1</td>
-	</tr>
-	<tr>
-		<td>purgecss-webpack-plugin</td>
-		<td>Scans your php (template) files to remove unused selectors from your css when in production mode, resulting in smaller css files.</td>
-		<td>3.1.3</td>
-	</tr>
-	<tr>
-		<td>sass</td>
-		<td>To make Sass work with node</td>
-		<td>1.32.2</td>
-	</tr>
-	<tr>
-		<td>sass-loader</td>
-		<td>Sass loader for Webpack to compile to CSS</td>
-		<td>10.1.0</td>
-	</tr>
-	<tr>
-		<td>stylelint</td>
-		<td>Helps you avoid errors and enforce conventions in your styles</td>
-		<td>1.32.2</td>
-	</tr>
-	<tr>
-		<td>stylelint-scss</td>
-		<td>Extra stylelint rules for Sass</td>
-		<td>3.18.0</td>
-	</tr>
-	<tr>
-		<td>stylelint-webpack-plugin</td>
-		<td>Make stylelint work with webpack during compiling</td>
-		<td>2.1.1</td>
-	</tr>
+	</thead>
+	<tbody>
 	<tr>
 		<td>webpack</td>
 		<td>The Webpack bundler</td>
@@ -336,10 +413,33 @@ npm run prettier:fix
 		<td>Get a real progress bar while development which also includes a profiler</td>
 		<td>5.0.0-3</td>
 	</tr>
+     </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Translation</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
 	<tr>
 		<td>wp-pot-cli</td>
 		<td>Scans all the files and generates .pot file automatically for i18n and l10n</td>
 		<td>1.5.0</td>
+	</tr>
+     </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>Misc</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>glob-all</td>
+		<td>Provides a similar API to glob, however instead of a single pattern, you may also use arrays of patterns. Used to glob multiple files in one of the configuration files</td>
+		<td>3.2.1</td>
 	</tr>
 	</tbody>
 </table>
