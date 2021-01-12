@@ -64,14 +64,6 @@ ____
 >- All configuration files `.prettierrc.js`, `.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js` are organised in a single folder
 >- The Webpack configuration is divided into 2 sub configuration files for the development and production build/environment
 
-<table>
-<thead>
-<tr>
-<td>Dependency</td>
-</tr>
-</thead>
-</table>
-
 ## Requirements
 
 - Node.js
