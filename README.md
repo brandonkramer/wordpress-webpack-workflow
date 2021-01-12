@@ -94,7 +94,7 @@ ____
     │     └─ backend.js          # For back-end / wp-admin scripting
     │
     └── public
-        ├── images               # Iptimized (compressed) images
+        ├── images               # Optimized (compressed) images
         ├── css                  # Compiled CSS files with be generated here
         └── js                   # Compiled JS files with be generated here
 ```
