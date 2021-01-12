@@ -44,7 +44,8 @@ ____
 
  **Images**
 
->- [**ImageMinimizerWebpackPlugin**](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/) for Minification/optimization of images
+>- [**ImageMinimizerWebpackPlugin**](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/) + [**CopyWebpackPlugin**](https://webpack.js.org/plugins/copy-webpack-plugin/)
+   to optimize (compress) all images using
 >- _File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`_
 
  **Translation**
@@ -57,6 +58,10 @@ ____
 >- _File types: `.css`, `.html`, `.php`, `.js`_
 >- [**BrowserSync**](https://browsersync.io/), synchronising URLs, interactions and code changes across devices and automatically refreshes all the browsers on al devices
 >- [**webPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
+
+**Configuration**
+>- All configuration files (`.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js`) are organised in a single folder
+>- The Webpack configuration is divided into 2 sub configuration files for the development and production build/environment
 
 ## Requirements
 
@@ -78,14 +83,16 @@ ____
 │   ├── wordpress-webpack.pot    # Boilerplate POT File that gets overwritten by WP-Pot 
 └──assets
     ├── src                      # Holds all the source files
+    │   ├── images               # Uncompressed images
     │   ├── scss                 # Holds the SCSS files
-    │   │ ├─ frontend.scss      
-    │   │ └─ backend.scss       
+    │   │ ├─ frontend.scss       # For front-end styling
+    │   │ └─ backend.scss        # For back-end / wp-admin styling
     │   └── js                   # Holds the JS files
-    │     ├─ frontend.js         
-    │     └─ backend.js          
+    │     ├─ frontend.js         # For front-end scripting
+    │     └─ backend.js          # For back-end / wp-admin scripting
     │
     └── public
+        ├── images               # Iptimized (compressed) images
         ├── css                  # Compiled CSS files with be generated here
         └── js                   # Compiled JS files with be generated here
 ```
@@ -125,8 +132,6 @@ Or run with watcher & browserSync
 ```bash
 npm run prod:watch
 ```
-This will open a browser, watch all files (php, scss, js, etc) and reload the
-browser when you press save.
 
 ##  More Scripts/Tasks
 
@@ -147,4 +152,10 @@ npm run stylelint
 
 # To find fix problems in your sass/css code
 npm run stylelint:fix
+
+# To make sure files in assets/src/js are formatted
+npm run prettier
+
+# To fix and format the js files in assets/src/js
+npm run prettier:fix
 ```

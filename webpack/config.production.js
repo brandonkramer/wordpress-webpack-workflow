@@ -8,6 +8,8 @@
  * @type MiniCssExtractPlugin : Extracts the CSS files into public/css https://webpack.js.org/plugins/mini-css-extract-plugin/
  * @type BrowserSyncPlugin : Synchronising URLs, interactions and code changes across devices https://github.com/Va1/browser-sync-webpack-plugin
  * @type WebpackBar : Display elegant progress bar while building or watch https://github.com/nuxt-contrib/webpackbar
+ * @type ImageMinimizerPlugin : To optimize (compress) all images using https://webpack.js.org/plugins/image-minimizer-webpack-plugin/
+ * @type CopyPlugin : For WordPress we need to copy images from src to public to be able to optimize them https://webpack.js.org/plugins/copy-webpack-plugin/
  *
  * Only in production environment:
  * @type PurgecssPlugin : A tool to remove unused CSS https://purgecss.com/plugins/webpack.html
@@ -18,6 +20,8 @@ const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const BrowserSyncPlugin    = require( 'browser-sync-webpack-plugin' )
 const WebpackBar           = require( 'webpackbar' );
 const PurgecssPlugin       = require( 'purgecss-webpack-plugin' )
+const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' );
+const CopyPlugin           = require( "copy-webpack-plugin" );
 
 module.exports = ( projectOptions ) => {
     // Set environment level to 'production'
@@ -53,6 +57,14 @@ module.exports = ( projectOptions ) => {
         use:     'babel-loader' // Configurations in "webpack/babel.config.js"
     };
 
+    // Images rules
+    const imageRules = {
+        test: projectOptions.projectImages.rules.image.test,
+        use:  [
+            { loader: 'file-loader', }, // Or `url-loader` or your other loader
+        ],
+    }
+
     // Optimization rules
     const optimizations = {
         splitChunks: {
@@ -69,12 +81,20 @@ module.exports = ( projectOptions ) => {
 
     // Plugins
     const plugins = [
-        new WebpackBar(),
-        new MiniCssExtractPlugin( {
+        new WebpackBar(), // Adds loading bar during builds
+        new MiniCssExtractPlugin( { // Extracts CSS files
             filename: projectOptions.projectCss.filename
         } ),
-        new PurgecssPlugin( {
+        new PurgecssPlugin( { // Scans files and removes unused CSS
             paths: glob.sync( projectOptions.projectCss.purgeCss.paths, { nodir: true } ),
+        } ),
+        new CopyPlugin( { // Copies images from src to public
+            patterns: [
+                { from: projectOptions.projectImagesPath, to: projectOptions.projectOutput + '/images' },
+            ],
+        } ),
+        new ImageMinimizerPlugin( { // Optimizes images
+            minimizerOptions: projectOptions.projectImages.minimizerOptions,
         } ),
     ];
     // Add browserSync to plugins if enabled
@@ -106,7 +126,7 @@ module.exports = ( projectOptions ) => {
             filename: projectOptions.projectJs.filename
         },
         optimization: optimizations,
-        module:       { rules: [ cssRules, jsRules, ], },
+        module:       { rules: [ cssRules, jsRules, imageRules ], },
         plugins:      plugins,
     }
 }

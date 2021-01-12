@@ -1,7 +1,7 @@
 /**
  * SASS
  */
-import '../sass/backend.scss';
+import "../sass/backend.scss";
 
 /**
  * JavaScript

@@ -7,23 +7,24 @@ const path = require( 'path' );
 
 // Paths to find our files and provide BrowserSync functionality.
 const projectPaths = {
-    projectDir:      __dirname, // Current project directory absolute path.
-    projectJsPath:   path.resolve( __dirname, 'assets/src/js' ),
-    projectScssPath: path.resolve( __dirname, 'assets/src/scss' ),
-    projectOutput:   path.resolve( __dirname, 'assets/public' ),
-    projectWebpack:  path.resolve( __dirname, 'webpack' ),
+    projectDir:        __dirname, // Current project directory absolute path.
+    projectJsPath:     path.resolve( __dirname, 'assets/src/js' ),
+    projectScssPath:   path.resolve( __dirname, 'assets/src/scss' ),
+    projectImagesPath: path.resolve( __dirname, 'assets/src/images' ),
+    projectOutput:     path.resolve( __dirname, 'assets/public' ),
+    projectWebpack:    path.resolve( __dirname, 'webpack' ),
     // BrowserSync settings
     browserSync: {
         enable: true, // enable or disable browserSync
         host:   'localhost',
-        port: 3000,
+        port:   3000,
         mode:   'proxy', // proxy | server
         server: { baseDir: [ 'public' ] }, // can be ignored if using proxy
         proxy:  'https://wp-strap.lndo.site',
         // BrowserSync will automatically watch for changes to any files connected to our entry,
         // including both JS and Sass files. We can use this property to tell BrowserSync to watch
         // for other types of files, in this case PHP files, in our project.
-        files: '**/**/**.php',
+        files:  '**/**/**.php',
         reload: true, // Set false to prevent BrowserSync from reloading and let Webpack Dev Server take care of this
         // browse to http://localhost:3000/ during development,
     }
@@ -31,7 +32,7 @@ const projectPaths = {
 
 // Javascript files to bundle
 const projectFiles = {
-    projectJs:  {
+    projectJs:     {
         babelJs:  __dirname + '/webpack/.eslintrc.js',
         eslint:   true, // enable or disable eslint  | this is only enabled in development env.
         filename: 'js/[name].js',
@@ -45,7 +46,7 @@ const projectFiles = {
             }
         }
     },
-    projectCss: {
+    projectCss:    {
         postCss:   projectPaths.projectWebpack + '/postcss.config.js',
         stylelint: true, // enable or disable stylelint | this is only enabled in development env.
         filename:  'css/[name].css',
@@ -62,6 +63,27 @@ const projectFiles = {
                 __dirname + '/blocks/**/**/*',
                 __dirname + '/*',
             ]
+        }
+    },
+    projectImages: {
+        rules:            {
+            image: {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+            }
+        },
+        minimizerOptions: {
+            // Lossless optimization with custom option
+            // Feel free to experiment with options for better result for you
+            plugins: [
+                [ 'gifsicle', { interlaced: true } ],
+                [ 'jpegtran', { progressive: true } ],
+                [ 'optipng', { optimizationLevel: 5 } ],
+                [ 'svgo', {
+                    plugins: [
+                        { removeViewBox: false, },
+                    ],
+                }, ],
+            ],
         }
     }
 }
