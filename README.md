@@ -93,7 +93,12 @@ ____
 1. Edit the translate script in package.json to change the destination file which should be in sync with `languages/wordpress-webpack.pot`, the text domain which wp-pot will scan and use to generate the pot file, package/last-translator/team/bug-report to edit the POT information data
 2. Edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
    - You can also disable BrownserSync, Eslint & Stylelint in `webpack.config.js`
+   
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better suite your needs
+
+```bash
+npm run dev
+```
 
 ## Developing Locally
 
