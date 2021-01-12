@@ -42,12 +42,12 @@ ____
 >- [**ESLint**](https://eslint.org/) find and fix problems in your JavaScript code with a  **linting configuration** 
 >- [**Prettier**](https://prettier.io/) for automatic JavaScript / TypeScript code **formatting** 
 
- **IMAGES**
+ **Images**
 
 >- [**ImageMinimizerWebpackPlugin**](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/) for Minification/optimization of images
 >- _File types: `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`_
 
- **TRANSLATION**
+ **Translation**
 
 >- [**WP-Pot**](https://github.com/wp-pot/wp-pot-cli) scans all the files and generates `.pot` file automatically for i18n and l10n
 
