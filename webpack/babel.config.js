@@ -3,7 +3,6 @@
  * as configured in package.json under babel.extends
  *
  * @docs Babel Webpack loader: https://webpack.js.org/loaders/babel-loader/
- * @docs @wordpress/default : https://developer.wordpress.org/block-editor/packages/packages-babel-preset-default/
  * @since 1.0.0
  */
 module.exports = api => {
