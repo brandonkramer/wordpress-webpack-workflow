@@ -41,9 +41,7 @@ const projectFiles = {
             backend:  projectPaths.projectJsPath + '/backend.js',
         },
         rules:    {
-            js: {
-                test: /\.m?js$/,
-            }
+            test: /\.m?js$/,
         }
     },
     // CSS configurations for development and production
@@ -51,14 +49,8 @@ const projectFiles = {
         postCss:   projectPaths.projectWebpack + '/postcss.config.js',
         stylelint: true, // enable or disable stylelint | this is only enabled in development env.
         filename:  'css/[name].css',
-        processor: 'sass', // sass | postcss
         rules:     {
-            scss: { // Sass
-                test: /\.s[ac]ss$/i,
-            },
-            pcss: { // PostCSS
-                test: /\.pcss$/i,
-            }
+            test: /\.s[ac]ss$/i, //  "/\.s[ac]ss$/i" for sass or "/\.pcss$/i" for postcss
         },
         purgeCss:  { // PurgeCSS is only being activated in production environment
             paths: [ // Specify content that should be analyzed by PurgeCSS
@@ -83,9 +75,7 @@ const projectFiles = {
     // Images configurations for development and production
     projectImages: {
         rules: {
-            image: {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-            }
+            test: /\.(jpe?g|png|gif|svg)$/i,
         },
         // Optimization settings
         minimizerOptions: {

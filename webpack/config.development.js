@@ -4,25 +4,17 @@
  * Run with: "npm run dev" or "npm run dev:watch"
  *
  * @since 1.0.0
- * @type magicImporter : Add magic import functionalities to SASS https://github.com/maoberlehner/node-sass-magic-importer
- * @type MiniCssExtractPlugin : Extracts the CSS files into public/css https://webpack.js.org/plugins/mini-css-extract-plugin/
- * @type BrowserSyncPlugin : Synchronising URLs, interactions and code changes across devices https://github.com/Va1/browser-sync-webpack-plugin
- * @type WebpackBar : Display elegant progress bar while building or watch https://github.com/nuxt-contrib/webpackbar
- * @type ImageMinimizerPlugin : To optimize (compress) all images using https://webpack.js.org/plugins/image-minimizer-webpack-plugin/
- * @type CopyPlugin : For WordPress we need to copy images from src to public to be able to optimize them https://webpack.js.org/plugins/copy-webpack-plugin/
- *
- * Only in development environment:
- * @type ESLintPlugin : Find and fix problems in your JavaScript code https://eslint.org/
- * @type StylelintPlugin : Helps you avoid errors and enforce conventions in your styles https://stylelint.io/
  */
-const magicImporter        = require( 'node-sass-magic-importer' );
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
-const ESLintPlugin         = require( 'eslint-webpack-plugin' );
-const StylelintPlugin      = require( 'stylelint-webpack-plugin' )
-const BrowserSyncPlugin    = require( 'browser-sync-webpack-plugin' )
-const WebpackBar           = require( 'webpackbar' );
-const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' );
-const CopyPlugin           = require( "copy-webpack-plugin" );
+const magicImporter        = require( 'node-sass-magic-importer' ); // Add magic import functionalities to SASS
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ); // Extracts the CSS files into public/css
+const BrowserSyncPlugin    = require( 'browser-sync-webpack-plugin' ) // Synchronising URLs, interactions and code changes across devices
+const WebpackBar           = require( 'webpackbar' ); // Display elegant progress bar while building or watch
+const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' ); // To optimize (compress) all images using
+const CopyPlugin           = require( "copy-webpack-plugin" ); // For WordPress we need to copy images from src to public to optimize them
+
+// Only in development environment:
+const ESLintPlugin    = require( 'eslint-webpack-plugin' ); //  Find and fix problems in your JavaScript code
+const StylelintPlugin = require( 'stylelint-webpack-plugin' ) // Helps you avoid errors and enforce conventions in your styles
 
 module.exports = ( projectOptions ) => {
     // Set environment level to 'development'
@@ -30,8 +22,7 @@ module.exports = ( projectOptions ) => {
 
     // CSS Rules
     const cssRules = {
-        test:    projectOptions.projectCss.processor === 'postcss' ?
-                     projectOptions.projectCss.rules.pcss.test : projectOptions.projectCss.rules.scss.test,
+        test:    projectOptions.projectCss.rules.test,
         exclude: /(node_modules|bower_components|vendor)/,
         use:     [
             MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
@@ -53,7 +44,7 @@ module.exports = ( projectOptions ) => {
 
     // JavaScript rules
     const jsRules = {
-        test:    projectOptions.projectJs.rules.js.test,
+        test:    projectOptions.projectJs.rules.test,
         include: projectOptions.projectJsPath,
         exclude: /(node_modules|bower_components|vendor)/,
         use:     'babel-loader' // Configurations in "webpack/babel.config.js"
@@ -61,7 +52,7 @@ module.exports = ( projectOptions ) => {
 
     // Images rules
     const imageRules = {
-        test: projectOptions.projectImages.rules.image.test,
+        test: projectOptions.projectImages.rules.test,
         use:  [
             {
                 loader: 'file-loader',// Or `url-loader` or your other loader
