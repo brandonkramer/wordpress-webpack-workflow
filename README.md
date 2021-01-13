@@ -57,13 +57,13 @@ ____
 
 > - [**Watch Mode**](https://webpack.js.org/guides/development/#using-watch-mode), watches for changes in files to recompile
 >- _File types: `.css`, `.html`, `.php`, `.js`_
->- [**BrowserSync**](https://browsersync.io/), synchronising URLs, interactions and code changes across devices and automatically refreshes all the browsers on al devices
+>- [**BrowserSync**](https://browsersync.io/), synchronising browsers, URLs, interactions and code changes across devices and automatically refreshes all the browsers on all devices on changes
 >- [**WebPackBar**](https://github.com/nuxt/webpackbar) so you can get a real progress bar while development which also includes a **profiler**
 
 **Configuration**
 
 > - All configuration files `.prettierrc.js`, `.eslintrc.js`, `.stylelintrc.js`, `babel.config.js`, `postcss.config.js` are organised in a single folder
->- The Webpack configuration is divided into 2 sub configuration files for the development and production build/environment
+>- The Webpack configuration is divided into 2 environmental config files for the development and production build/environment
 
 ## Requirements
 
@@ -74,8 +74,8 @@ ____
 
 ```bash
 ├──package.json                  # Node.js dependencies & scripts (NPM functions)
-├──webpack.config.js             # Holds al the base Webpack configurations
-├──webpack                       # Folder that holds all the config files
+├──webpack.config.js             # Holds all the base Webpack configurations
+├──webpack                       # Folder that holds all the sub-config files
 │   ├── .prettierrc.js           # Configuration for Prettier
 │   ├── .eslintrc.js             # Configuration for Eslint
 │   ├── .stylelintrc.js          # Configuration for Stylelint
@@ -166,7 +166,7 @@ npm run prettier
 npm run prettier:fix
 ```
 
-## Included dependencies
+## Package.json dependencies
 <table>
 	<thead>
 	<tr>
@@ -194,11 +194,6 @@ npm run prettier:fix
 		<td>@babel/core</td>
 		<td>Babel compiler core for the Webpack babel loader</td>
 		<td>7.12.10</td>
-	</tr>
-	<tr>
-		<td>@babel/polyfill</td>
-		<td>Allows you to emulate an ES6+ environment. Effectively, it ensures your ES6+ code is backwards compatible</td>
-		<td>7.12.1</td>
 	</tr>
 	<tr>
 		<td>@babel/preset-env</td>

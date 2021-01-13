@@ -48,7 +48,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
-    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@wordpress/eslint-plugin": "^7.4.0",
     "autoprefixer": "^10.2.1",

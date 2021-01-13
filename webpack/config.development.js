@@ -30,7 +30,8 @@ module.exports = ( projectOptions ) => {
 
     // CSS Rules
     const cssRules = {
-        test:    projectOptions.projectCss.rules.scss.test,
+        test:    projectOptions.projectCss.processor === 'postcss' ?
+                     projectOptions.projectCss.rules.pcss.test : projectOptions.projectCss.rules.scss.test,
         exclude: /(node_modules|bower_components|vendor)/,
         use:     [
             MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
@@ -81,14 +82,13 @@ module.exports = ( projectOptions ) => {
             filename: projectOptions.projectCss.filename
         } ),
         new CopyPlugin( { // Copies images from src to public
-            patterns: [
-                { from: projectOptions.projectImagesPath, to: projectOptions.projectOutput + '/images' },
-            ],
+            patterns: [ { from: projectOptions.projectImagesPath, to: projectOptions.projectOutput + '/images' }, ],
         } ),
         new ImageMinimizerPlugin( { // Optimizes images
             minimizerOptions: projectOptions.projectImages.minimizerOptions,
         } ),
     ];
+
     // Add browserSync to plugins if enabled
     if ( projectOptions.browserSync.enable === true ) {
         const browserSyncOptions = {
@@ -97,16 +97,11 @@ module.exports = ( projectOptions ) => {
             port:  projectOptions.browserSync.port,
         }
         if ( projectOptions.browserSync.mode === 'server' ) {
-            Object.assign( browserSyncOptions, {
-                server: projectOptions.browserSync.server
-            } )
+            Object.assign( browserSyncOptions, { server: projectOptions.browserSync.server } )
         } else {
-            Object.assign( browserSyncOptions, {
-                proxy: projectOptions.browserSync.proxy
-            } )
+            Object.assign( browserSyncOptions, { proxy: projectOptions.browserSync.proxy } )
         }
-        plugins.push( new BrowserSyncPlugin( browserSyncOptions,
-            { reload: projectOptions.browserSync.reload } ) )
+        plugins.push( new BrowserSyncPlugin( browserSyncOptions, { reload: projectOptions.browserSync.reload } ) )
     }
     // Add eslint to plugins if enabled
     if ( projectOptions.projectJs.eslint === true ) {
@@ -117,18 +112,23 @@ module.exports = ( projectOptions ) => {
         plugins.push( new StylelintPlugin() )
     }
 
+    // Add sourcemap if enabled
+    const sourceMap = { devtool: false };
+    if ( projectOptions.projectSourceMaps.enable === true && (
+        projectOptions.projectSourceMaps.env === 'dev' || projectOptions.projectSourceMaps.env === 'dev-prod'
+    ) ) {
+        sourceMap.devtool = projectOptions.projectSourceMaps.devtool;
+    }
+
     // The configuration that's being returned to Webpack
     return {
-        mode:   'development',
-        entry:  projectOptions.projectJs.entry, // Define the starting point of the application.
-        output: {
+        mode:         'development',
+        entry:        projectOptions.projectJs.entry, // Define the starting point of the application.
+        output:       {
             path:     projectOptions.projectOutput,
             filename: projectOptions.projectJs.filename
         },
-        // A full SourceMap is emitted as a separate file ( e.g.  main.js.map )
-        // It adds a reference comment to the bundle so development tools know where to find it.
-        // set this to false if you don't need it as it may slow down the build process
-        devtool:      'source-map',
+        devtool:      sourceMap.devtool,
         optimization: optimizations,
         module:       { rules: [ cssRules, jsRules, imageRules ], },
         plugins:      plugins,

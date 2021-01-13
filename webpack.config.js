@@ -30,9 +30,10 @@ const projectPaths = {
     }
 };
 
-// Javascript files to bundle
+// Files to bundle
 const projectFiles = {
-    projectJs:     {
+    // JS configurations for development and production
+    projectJs: {
         eslint:   true, // enable or disable eslint  | this is only enabled in development env.
         filename: 'js/[name].js',
         entry:    {
@@ -45,13 +46,18 @@ const projectFiles = {
             }
         }
     },
-    projectCss:    {
+    // CSS configurations for development and production
+    projectCss: {
         postCss:   projectPaths.projectWebpack + '/postcss.config.js',
         stylelint: true, // enable or disable stylelint | this is only enabled in development env.
         filename:  'css/[name].css',
+        processor: 'sass', // sass | postcss
         rules:     {
-            scss: {
+            scss: { // Sass
                 test: /\.s[ac]ss$/i,
+            },
+            pcss: { // PostCSS
+                test: /\.pcss$/i,
             }
         },
         purgeCss:  { // PurgeCSS is only being activated in production environment
@@ -64,15 +70,28 @@ const projectFiles = {
             ]
         }
     },
+    // Source Maps configurations
+    projectSourceMaps: {
+        // Sourcemaps are nice for debugging but takes lots of time to compile,
+        // so we disable this by default and can be enabled when necessary
+        enable: false,
+        // Enabled only for development on default, use "prod" to enable only for production
+        // or "dev-prod" to enable it for both production and development
+        env:     'dev', // dev | dev-prod | prod
+        devtool: 'source-map' // type of sourcemap, see more info here: https://webpack.js.org/configuration/devtool/
+    },
+    // Images configurations for development and production
     projectImages: {
-        rules:            {
+        rules: {
             image: {
                 test: /\.(jpe?g|png|gif|svg)$/i,
             }
         },
+        // Optimization settings
         minimizerOptions: {
             // Lossless optimization with custom option
             // Feel free to experiment with options for better result for you
+            // More info here: https://webpack.js.org/plugins/image-minimizer-webpack-plugin/
             plugins: [
                 [ 'gifsicle', { interlaced: true } ],
                 [ 'jpegtran', { progressive: true } ],
