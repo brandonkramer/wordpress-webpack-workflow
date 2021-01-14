@@ -143,7 +143,7 @@ In `webpack.config.js` you can choose to work with Sass and use PostCSS only for
         use: 'sass' // sass || postcss
     }
 ```
-Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS is great when working on projects where you don't need to write alot of CSS. I do believe there are projects where you're better off using Sass(+Bootstrap), though it's a personal preference; therefore I left the ability to change between Sass+PostCSS or PostCSS-only.
+Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS is great when for tons of reasons, but I do believe there are projects where you're better off using Sass(+Bootstrap), though it's a personal preference; therefore I left the ability to change between Sass+PostCSS or PostCSS-only.
 
 When using PostCSS-only, you also need to change the import rule in `assets/src/js/frontend.js` & `assets/src/js/backend.js` to import a `.css` or `.pcss` file instead of a `.scss` file.
 ```js
