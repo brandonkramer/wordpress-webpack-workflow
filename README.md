@@ -33,6 +33,11 @@ npm run dev:watch
 npm run prod
 npm run prod:watch
 ```
+You can also use the npx script with predefined answers to get a quicker start
+```bash
+npx wp-strap webpack "projectName:Your plugin name" "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com "folder:Current folder"
+```
+
 <a href="#what-to-configure">Read more about the configuration & build scripts</a>
 ____
 
