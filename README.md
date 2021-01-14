@@ -19,6 +19,23 @@
 
 Includes WebPack v5, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autoprefixer, Eslint, Stylelint, SCSS
 processor, WPPot, an organized config & file structure and more.
+
+![Image](https://media2.giphy.com/media/aY0fJxPJ5vwa6Evy2a/giphy.gif)
+
+## Quickstart 
+
+```bash
+# 1-- Run the npx script to get the files
+npx wp-strap webpack
+# 2-- Fill in the details for your POT file in the terminal
+# 3-- Edit the BrowserSync settings in `webpack.config.js` which applies to your environment
+# 3-- Start your npm build workflow with one of these commands:
+npm run dev 
+npm run dev:watch
+npm run prod
+npm run prod:watch
+```
+<a href="#what-to-configure">Read more about the configuration & build scripts</a>
 ____
 
 ## Features & benefits
@@ -103,9 +120,8 @@ ____
 
 ## What to configure
 
-1. Edit the translate script in package.json to change the destination file which should be in sync
-   with `languages/wordpress-webpack.pot`, the text domain which wp-pot will scan and use to generate the pot file,
-   package/last-translator/team/bug-report to edit the POT information data
+1. Edit the translate script in package.json with your project data
+   - If you use `npx wp-strap webpack` to get the files then this will be done automatically with you terminal input
 2. Edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
     - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better
