@@ -21,5 +21,11 @@ module.exports = {
     globals: {
         "wp":     true,
         "jQuery": true,
-    }
+    },
+    ignorePatterns: [
+        "tests/**/*.js",
+        "temp.js",
+        "/vendor/**/**/*.js",
+        "/node_modules/**/**/*.js"
+    ],
 }

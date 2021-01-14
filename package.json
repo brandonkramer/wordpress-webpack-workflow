@@ -1,6 +1,6 @@
 {
   "name": "wordpress-webpack-workflow",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "WP-Strap",
   "license": "MIT",
   "homepage": "https://github.com/wp-strap/wordpress-webpack-workflow",
@@ -38,7 +38,10 @@
   "prettier": "./webpack/.prettierrc.js",
   "stylelint": {
     "ignoreFiles": [
-      "./assets/public/css/**/*.css"
+      "./assets/public/css/**/*.css",
+      "./vendor/**/**/*.css",
+      "./node_modules/**/**/*.css",
+      "./tests/**/**/*.css"
     ],
     "extends": [
       "./webpack/.stylelintrc.js"
