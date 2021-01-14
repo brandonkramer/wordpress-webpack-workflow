@@ -20,10 +20,8 @@
 Includes WebPack v5, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autoprefixer, Eslint, Stylelint, SCSS
 processor, WPPot, an organized config & file structure and more.
 
+## Quickstart
 ![Image](https://media2.giphy.com/media/aY0fJxPJ5vwa6Evy2a/giphy.gif)
-
-## Quickstart 
-
 ```bash
 # 1-- Run the npx script to get the files
 npx wp-strap webpack
