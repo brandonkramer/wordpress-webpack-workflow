@@ -26,8 +26,8 @@ processor, WPPot, an organized config & file structure and more.
 # 1-- Run the npx script to get the files
 npx wp-strap webpack
 # 2-- Fill in the details for your POT file in the terminal
-#  -- Edit the BrowserSync settings in `webpack.config.js` if you want to make use of it
-# 3-- Install the NPM dependencies in the folder
+#   - Edit the BrowserSync settings in `webpack.config.js` if you want to make use of it
+# 3-- Install the NPM dependencies in the project folder
 npm install
 # 4-- Start your npm build workflow with one of these commands:
 npm run dev 
