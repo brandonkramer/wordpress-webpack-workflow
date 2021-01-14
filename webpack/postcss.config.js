@@ -8,9 +8,11 @@
 module.exports = ( projectOptions ) => {
     return {
         postcssOptions: {
-            plugins: {
-                autoprefixer: {},
-            }
+            plugins: [
+                // To parse CSS and add vendor prefixes to CSS rules using values from Can I Use.
+                // https://github.com/postcss/autoprefixer
+                require( 'autoprefixer' ),
+            ]
         }
     }
 }
