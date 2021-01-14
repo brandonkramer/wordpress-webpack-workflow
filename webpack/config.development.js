@@ -22,7 +22,8 @@ module.exports = ( projectOptions ) => {
 
     // CSS Rules
     const cssRules = {
-        test:    projectOptions.projectCss.rules.test,
+        test:    projectOptions.projectCss.use === 'sass' ?
+                     projectOptions.projectCss.rules.sass.test : projectOptions.projectCss.rules.postcss.test,
         exclude: /(node_modules|bower_components|vendor)/,
         use:     [
             MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
@@ -30,17 +31,19 @@ module.exports = ( projectOptions ) => {
             {  // loads the PostCSS loader
                 loader:  "postcss-loader",
                 options: require( projectOptions.projectCss.postCss )( projectOptions )
-            },
-            { // Compiles Sass to CSS
-                loader:  'sass-loader',
-                options: {
-                    sassOptions: {
-                        importer: magicImporter() // add magic import functionalities to sass
-                    }
-                }
             }
         ],
     };
+    if ( projectOptions.projectCss.use === 'sass' ) { // if chosen Sass then we're going to add the Sass loader
+        cssRules.use.push( { // Compiles Sass to CSS
+            loader:  'sass-loader',
+            options: {
+                sassOptions: {
+                    importer: magicImporter() // add magic import functionalities to sass
+                }
+            }
+        } );
+    }
 
     // JavaScript rules
     const jsRules = {

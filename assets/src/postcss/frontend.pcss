@@ -1,0 +1,18 @@
+/**
+Postcss-import feature example
+ */
+@import-glob "components/*.pcss";
+
+.test {
+    color: red;
+    /**
+    Postcss-nested feature example
+     */
+    &__blue {
+        color: blue;
+    }
+
+    &__yellow {
+        color: yellow;
+    }
+}

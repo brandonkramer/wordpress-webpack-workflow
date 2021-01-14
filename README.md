@@ -21,7 +21,9 @@ Includes WebPack v5, BabelJS v7, BrowserSync v2, PostCSS v8, PurgeCSS v3, Autopr
 processor, WPPot, an organized config & file structure and more.
 
 ## Quickstart
+
 ![Image](https://media2.giphy.com/media/aY0fJxPJ5vwa6Evy2a/giphy.gif)
+
 ```bash
 # 1-- Run the npx script to get the files
 npx wp-strap webpack
@@ -35,7 +37,9 @@ npm run dev:watch
 npm run prod
 npm run prod:watch
 ```
+
 You can also use the npx script with predefined answers to get a quicker start
+
 ```bash
 npx wp-strap webpack "projectName:Your plugin name" "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com "folder:Current folder"
 ```
@@ -58,7 +62,6 @@ ____
 
 **JavaScript**
 > - [**BabelJS**](https://babeljs.io/) Webpack loader to use next generation Javascript with a  **BabelJS Configuration file**
->- [**Concatenation**](https://webpack.js.org/plugins/module-concatenation-plugin/) in production mode handled by Webpack
 >- **Minification** in production mode
 >- [**Code Splitting**](https://webpack.js.org/guides/code-splitting/), being able to structure JavaScript code into modules & bundles
 >- **Sourcemaps** generation for debugging purposes with [various styles of source mapping](https://webpack.js.org/configuration/devtool/) handled by WebPack
@@ -126,7 +129,7 @@ ____
 ## What to configure
 
 1. Edit the translate script in package.json with your project data
-   - If you use `npx wp-strap webpack` to get the files then this will be done automatically with you terminal input
+    - If you use `npx wp-strap webpack` to get the files then this will be done automatically with you terminal input
 2. Edit the BrowserSync settings in `webpack.config.js` which applies to your local/server environment
     - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better
@@ -188,6 +191,7 @@ npm run prettier:fix
 ```
 
 ## Package.json dependencies
+
 <table>
 	<thead>
 	<tr>
@@ -259,12 +263,12 @@ npm run prettier:fix
 	<thead>
 	<tr>
 		<th></th>
-		<th>CSS, Sass (compiler) & PurgeCSS</th>
+		<th>CSS & PurgeCSS</th>
 		<th></th>
 	</tr>
 	</thead>
 	<tbody>
-	<tr>
+    <tr>
 		<td>css-loader</td>
 		<td>Needed in Webpack to load and process CSS</td>
 		<td>5.0.1</td>
@@ -273,21 +277,6 @@ npm run prettier:fix
 		<td>mini-css-extract-plugin</td>
 		<td>Webpack normally loads CSS from out JavaScript. Since we're working with WordPress we need the CSS files separately. This will make that happen.</td>
 		<td>1.3.3</td>
-	</tr>
-	<tr>
-		<td>sass</td>
-		<td>To make Sass work with node</td>
-		<td>1.32.2</td>
-	</tr>
-	<tr>
-		<td>sass-loader</td>
-		<td>Sass loader for Webpack to compile to CSS</td>
-		<td>10.1.0</td>
-	</tr>
-	<tr>
-		<td>node-sass-magic-importer</td>
-		<td>To do lot of fancy things with Sass @import statements</td>
-		<td>5.3.2</td>
 	</tr>
 	<tr>
 		<td>purgecss-webpack-plugin</td>
@@ -318,7 +307,65 @@ npm run prettier:fix
 		<td>To parse CSS and add vendor prefixes to CSS rules using values from Can I Use.</td>
 		<td>10.2.1</td>
 	</tr>
-</tbody>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>If we use Sass+PostCSS</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>sass</td>
+		<td>To make Sass work with node</td>
+		<td>1.32.2</td>
+	</tr>
+	<tr>
+		<td>sass-loader</td>
+		<td>Sass loader for Webpack to compile to CSS</td>
+		<td>10.1.0</td>
+	</tr>
+	<tr>
+		<td>node-sass-magic-importer</td>
+		<td>To do lot of fancy things with Sass @import statements</td>
+		<td>5.3.2</td>
+	</tr>
+    </tbody>
+	<thead>
+	<tr>
+		<th></th>
+		<th>If we use PostCSS-only</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>postcss-import</td>
+		<td>To add an import feature like Sass, this can consume local files, node modules or web_modules</td>
+		<td>14.0.0</td>
+	</tr>
+	<tr>
+		<td>postcss-import-ext-glob</td>
+		<td>extend postcss-import path resolver to allow glob usage as a path.</td>
+		<td>2.0.0</td>
+	</tr>
+	<tr>
+		<td>postcss-nested</td>
+		<td>PostCSS plugin to unwrap nested rules like how Sass does it.</td>
+		<td>5.0.3</td>
+	</tr>
+	<tr>
+		<td>postcss-nested-ancestors</td>
+		<td>introduces ^& selector which let you reference any parent ancestor selector with an easy and customizable interface.</td>
+		<td>2.0.0</td>
+	</tr>
+	<tr>
+		<td>postcss-advanced-variables</td>
+		<td>Lets you use Sass-like variables, conditionals, and iterators in CSS.</td>
+		<td>3.0.1</td>
+	</tr>
+    </tbody>
 	<thead>
 	<tr>
 		<th></th>
