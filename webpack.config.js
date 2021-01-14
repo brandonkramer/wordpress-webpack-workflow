@@ -13,6 +13,10 @@ const projectPaths = {
     projectImagesPath: path.resolve( __dirname, 'assets/src/images' ),
     projectOutput:     path.resolve( __dirname, 'assets/public' ),
     projectWebpack:    path.resolve( __dirname, 'webpack' ),
+};
+
+// Files to bundle
+const projectFiles = {
     // BrowserSync settings
     browserSync: {
         enable: true, // enable or disable browserSync
@@ -27,11 +31,7 @@ const projectPaths = {
         files:  '**/**/**.php',
         reload: true, // Set false to prevent BrowserSync from reloading and let Webpack Dev Server take care of this
         // browse to http://localhost:3000/ during development,
-    }
-};
-
-// Files to bundle
-const projectFiles = {
+    },
     // JS configurations for development and production
     projectJs: {
         eslint:   true, // enable or disable eslint  | this is only enabled in development env.
@@ -71,6 +71,7 @@ const projectFiles = {
         // or "dev-prod" to enable it for both production and development
         env:     'dev', // dev | dev-prod | prod
         devtool: 'source-map' // type of sourcemap, see more info here: https://webpack.js.org/configuration/devtool/
+        // If "source-map" is too slow, then use "cheap-source-map" which struck a good balance between build performance and debuggability.
     },
     // Images configurations for development and production
     projectImages: {
