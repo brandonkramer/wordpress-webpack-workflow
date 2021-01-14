@@ -135,7 +135,7 @@ ____
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better
    suite your needs
    
-### You can choose to work with Sass+PostCSS or PostCSS-only
+### Work with Sass+PostCSS or PostCSS-only
 In `webpack.config.js` you can choose to work with Sass and use PostCSS only for the autoprefixer function or go full PostCSS-only (without sass); In that case `sass` needs to be changed to `postcss`.  
 
 ```js
