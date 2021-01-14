@@ -134,6 +134,24 @@ ____
     - You can also disable BrowserSync, Eslint & Stylelint in `webpack.config.js`
 3. The workflow is ready to start, you may want to configure the files in `/webpack/` and `webpack.config.js` to better
    suite your needs
+   
+### You can choose to work with Sass+PostCSS or PostCSS-only
+In `webpack.config.js` you can choose to work with Sass and use PostCSS only for the autoprefixer function or go full PostCSS-only (without sass); In that case `sass` needs to be changed to `postcss`.  
+
+```js
+    projectCss: {
+        use: 'sass' // sass || postcss
+    }
+```
+Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS is great when working on specific projects which you can finish quicker when using utility-based CSS, though it's a personal preference. I do believe there are projects where you're better off using Sass(+Bootstrap); therefore I left the ability to change between these two workflows.
+
+When using PostCSS-only, you also need to change the import rule in `assets/src/js/frontend.js` & `assets/src/js/backend.js` to import a `.css` or `.pcss` file instead of a `.scss` file.
+```js
+// Change
+import '../sass/backend.scss';
+// To 
+import '../postcss/backend.pcss';
+```
 
 ## Developing Locally
 
@@ -347,22 +365,22 @@ npm run prettier:fix
 	</tr>
 	<tr>
 		<td>postcss-import-ext-glob</td>
-		<td>extend postcss-import path resolver to allow glob usage as a path.</td>
+		<td>Extends postcss-import path resolver to allow glob usage as a path</td>
 		<td>2.0.0</td>
 	</tr>
 	<tr>
 		<td>postcss-nested</td>
-		<td>PostCSS plugin to unwrap nested rules like how Sass does it.</td>
+		<td>To unwrap nested rules like how Sass does it</td>
 		<td>5.0.3</td>
 	</tr>
 	<tr>
 		<td>postcss-nested-ancestors</td>
-		<td>introduces ^& selector which let you reference any parent ancestor selector with an easy and customizable interface.</td>
+		<td>introduces ^& selector which let you reference any parent ancestor selector with an easy and customizable interface</td>
 		<td>2.0.0</td>
 	</tr>
 	<tr>
 		<td>postcss-advanced-variables</td>
-		<td>Lets you use Sass-like variables, conditionals, and iterators in CSS.</td>
+		<td>Lets you use Sass-like variables, conditionals, and iterators in CSS</td>
 		<td>3.0.1</td>
 	</tr>
     </tbody>
