@@ -39,7 +39,7 @@ yarn prod:watch
 You can also use the npx script with predefined answers to get a quicker start
 
 ```bash
-npx wp-strap webpack "projectName:Your plugin name" "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com "folder:Current folder"
+npx wp-strap webpack "projectName:Your plugin name" "author:The Dev Company" authorEmail:hello@the-dev-company.com url:the-dev-company.com css:Sass+PostCSS "folder:Current folder"
 ```
 
 <a href="#what-to-configure">Read more about the configuration & build scripts</a>
@@ -105,7 +105,7 @@ ____
 │   ├── .stylelintrc.js          # Configuration for Stylelint
 │   ├── babel.config.js          # Configuration for BabelJS
 │   ├── postcss.config.js        # Configuration for PostCSS
-│   ├── config.base.js           # Holds the base config for webpack's devlopment & production mode
+│   ├── config.base.js           # Base config for Webpack's development & production mode
 │   ├── config.development.js    # Configuration for Webpack in development mode
 │   └── config.production.js     # Configuration for Webpack in production mode
 ├──languages                     # WordPress default language map in Plugins & Themes
