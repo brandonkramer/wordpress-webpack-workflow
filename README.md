@@ -556,3 +556,5 @@ Documenting this project's progress...
 * feat: [Prettier](https://prettier.io/) & [ImageMinimizerWebpackPlugin](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/)
 * feat: [BrowserSync](https://browsersync.io/), [WP-Pot](https://github.com/wp-pot/wp-pot-cli) & [WebpackBar](https://github.com/nuxt-contrib/webpackbar)
 * feat: `README.md` file
+___
+[__Buy me a coffee! :coffee:__](https://www.buymeacoffee.com/brandonkramer)
