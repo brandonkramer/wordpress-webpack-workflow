@@ -154,7 +154,7 @@ In `webpack.config.js` you can choose to work with Sass, and use PostCSS only fo
         use: 'sass' // sass || postcss
     }
 ```
-It get will get automatically configured when using the initial setup with `npx wp-strap webpack`.
+This gets automatically configured when using the initial setup with `npx wp-strap webpack`.
 
 Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS as a utility-first css framework is great for tons of reasons, but I do believe there are projects where you're better off using Sass(+Bootstrap), though it's a personal preference; therefore I left the ability to change between `Sass+PostCSS` or `PostCSS-only`.
 
