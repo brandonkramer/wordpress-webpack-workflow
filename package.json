@@ -23,9 +23,9 @@
     "eslint:fix": "eslint assets/src/js/**/*.js --fix",
     "stylelint": "stylelint assets/src/**/**/*.{css,scss,pcss}",
     "stylelint:fix": "stylelint assets/src/**/**/*.{css,scss,pcss} --fix",
-    "prettier": "prettier --check assets/src/js/**/*.js",
+    "prettier": "prettier assets/src/js/**/*.js",
     "prettier:fix": "prettier --write assets/src/js/**/*.js",
-    "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-webpack.pot' --package 'wordpress-webpack' --domain 'wordpress-webpack-text-domain' --last-translator '{{author_name}} <{{author_email}}>' --team '{{author_name}} <{{author_email}}>' --bug-report '{{author_url}}'"
+    "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-webpack.pot' --package '{{the-project-name}}' --domain '{{the-project-text-domain}}' --last-translator '{{author_name}} <{{author_email}}>' --team '{{author_name}} <{{author_email}}>' --bug-report '{{author_url}}'"
   },
   "babel": {
     "extends": "./webpack/babel.config.js"
@@ -61,6 +61,7 @@
     "css-loader": "^5.0.1",
     "eslint": "^7.17.0",
     "eslint-webpack-plugin": "^2.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "glob-all": "^3.2.1",
     "image-minimizer-webpack-plugin": "^2.2.0",
     "imagemin-gifsicle": "^7.0.0",
@@ -83,7 +84,6 @@
     "stylelint": "^13.8.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-webpack-plugin": "^2.1.1",
-    "unzipper": "^0.10.11",
     "webpack": "^5.12.3",
     "webpack-cli": "^4.3.1",
     "webpackbar": "^5.0.0-3",

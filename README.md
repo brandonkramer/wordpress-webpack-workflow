@@ -28,14 +28,12 @@ processor, WPPot, an organized config & file structure and more.
 # 1-- Run the npx script to get the files
 npx wp-strap webpack
 # 2-- Fill in the details for your POT file in the terminal
-#   - Edit the BrowserSync settings in `webpack.config.js` if you want to make use of it
-# 3-- Install the NPM dependencies in the project folder
-npm install
+# 3-- Edit the BrowserSync settings in `webpack.config.js` if you want to make use of it
 # 4-- Start your npm build workflow with one of these commands:
-npm run dev 
-npm run dev:watch
-npm run prod
-npm run prod:watch
+yarn dev 
+yarn dev:watch
+yarn prod
+yarn prod:watch
 ```
 
 You can also use the npx script with predefined answers to get a quicker start
@@ -92,8 +90,9 @@ ____
 
 ## Requirements
 
-- Node.js
-- NPM
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 
 ## File structure
 
@@ -106,6 +105,7 @@ ____
 │   ├── .stylelintrc.js          # Configuration for Stylelint
 │   ├── babel.config.js          # Configuration for BabelJS
 │   ├── postcss.config.js        # Configuration for PostCSS
+│   ├── config.base.js           # Holds the base config for webpack's devlopment & production mode
 │   ├── config.development.js    # Configuration for Webpack in development mode
 │   └── config.production.js     # Configuration for Webpack in production mode
 ├──languages                     # WordPress default language map in Plugins & Themes
@@ -158,13 +158,13 @@ import '../postcss/frontend.pcss';
 To work on the project locally (with Eslint, Stylelint & Prettier active), run:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Or run with watcher & browserSync
 
 ```bash
-npm run dev:watch
+yarn dev:watch
 ```
 
 This will open a browser, watch all files (php, scss, js, etc) and reload the browser when you press save.
@@ -174,38 +174,38 @@ This will open a browser, watch all files (php, scss, js, etc) and reload the br
 To create an optimized production build (purged with PurgeCSS & fully minified CSS & JS files), run:
 
 ```bash
-npm run prod
+yarn prod
 ```
 
 Or run with watcher & browserSync
 
 ```bash
-npm run prod:watch
+yarn prod:watch
 ```
 
 ## More Scripts/Tasks
 
 ```bash
 # To scan for text-domain functions and generate WP POT translation file
-npm run translate
+yarn translate
 
 # To find problems in your JavaScript code
-npm run eslint 
+yarn eslint 
 
 # To find fix problems in your JavaScript code
-npm run eslint:fix
+yarn eslint:fix
 
 # To find problems in your sass/css code
-npm run stylelint
+yarn stylelint
 
 # To find fix problems in your sass/css code
-npm run stylelint:fix
+yarn stylelint:fix
 
 # To make sure files in assets/src/js are formatted
-npm run prettier
+yarn prettier
 
 # To fix and format the js files in assets/src/js
-npm run prettier:fix
+yarn prettier:fix
 ```
 
 ## Package.json dependencies
@@ -276,6 +276,11 @@ npm run prettier:fix
 		<td>prettier</td>
 		<td>For automatic JavaScript / TypeScript code formatting</td>
 		<td>2.2.1</td>
+	</tr>
+	<tr>
+		<td>eslint-plugin-prettier</td>
+		<td>Runs Prettier as an ESLint rule and reports differences as individual ESLint issues.</td>
+		<td>3.3.1</td>
 	</tr>
 </tbody>
 	<thead>
@@ -515,3 +520,26 @@ npm run prettier:fix
 	</tr>
 	</tbody>
 </table>
+
+## Workflow's Changelog
+
+Documenting this project's progress...
+
+#### January 15, 2021
+* refactor: Migrated from NPM to Yarn for speed, `install` went from 183.281s to 65.76s-90.02s.
+* fix: Added `eslint-plugin-prettier` to make yarn work with eslint
+* refactor: DRY - added `config.base.js` file to facilitate configurations for both dev/prod
+
+#### January 14, 2021
+* feat: Be able to choose to work with `Sass+PostCss` or `PostCSS` only
+* feat: Added npx CLI build script + docs
+* fix: Make sure eslint & stylelint ignores vendor and testing folders
+* refactor: Move BrowserSync settings to "projectFiles" constant
+
+#### January 13, 2021
+* refactor: Make sourcemap customizable from `webpack.config.js`
+
+#### January 12, 2021
+* feat: [Prettier](https://prettier.io/) & [ImageMinimizerWebpackPlugin](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/)
+* feat: [BrowserSync](https://browsersync.io/), [WP-Pot](https://github.com/wp-pot/wp-pot-cli) & [WebpackBar](https://github.com/nuxt-contrib/webpackbar)
+* feat: `README.md` file
