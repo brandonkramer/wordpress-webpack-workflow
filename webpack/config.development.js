@@ -5,98 +5,63 @@
  *
  * @since 1.0.0
  */
-const magicImporter        = require( 'node-sass-magic-importer' ); // Add magic import functionalities to SASS
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ); // Extracts the CSS files into public/css
-const BrowserSyncPlugin    = require( 'browser-sync-webpack-plugin' ) // Synchronising URLs, interactions and code changes across devices
-const WebpackBar           = require( 'webpackbar' ); // Display elegant progress bar while building or watch
-const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' ); // To optimize (compress) all images using
-const CopyPlugin           = require( "copy-webpack-plugin" ); // For WordPress we need to copy images from src to public to optimize them
 
-// Only in development environment:
 const ESLintPlugin    = require( 'eslint-webpack-plugin' ); //  Find and fix problems in your JavaScript code
 const StylelintPlugin = require( 'stylelint-webpack-plugin' ) // Helps you avoid errors and enforce conventions in your styles
 
 module.exports = ( projectOptions ) => {
-    // Set environment level to 'development'
-    process.env.NODE_ENV = 'development';
 
-    // CSS Rules
+    process.env.NODE_ENV = 'development'; // Set environment level to 'development'
+
+    /**
+     * The base skeleton
+     */
+    const Base = require( './config.base' )( projectOptions );
+
+    /**
+     * CSS rules
+     */
     const cssRules = {
-        test:    projectOptions.projectCss.use === 'sass' ?
-                     projectOptions.projectCss.rules.sass.test : projectOptions.projectCss.rules.postcss.test,
-        exclude: /(node_modules|bower_components|vendor)/,
-        use:     [
-            MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
-            "css-loader",  // Translates CSS into CommonJS
-            {  // loads the PostCSS loader
-                loader:  "postcss-loader",
-                options: require( projectOptions.projectCss.postCss )( projectOptions )
-            }
-        ],
+        ...Base.cssRules, ...{
+            // add CSS rules for development here
+        }
     };
-    if ( projectOptions.projectCss.use === 'sass' ) { // if chosen Sass then we're going to add the Sass loader
-        cssRules.use.push( { // Compiles Sass to CSS
-            loader:  'sass-loader',
-            options: {
-                sassOptions: {
-                    importer: magicImporter() // add magic import functionalities to sass
-                }
-            }
-        } );
-    }
 
-    // JavaScript rules
+    /**
+     * JS rules
+     */
     const jsRules = {
-        test:    projectOptions.projectJs.rules.test,
-        include: projectOptions.projectJsPath,
-        exclude: /(node_modules|bower_components|vendor)/,
-        use:     'babel-loader' // Configurations in "webpack/babel.config.js"
+        ...Base.jsRules, ...{
+            // add JS rules for development here
+        }
     };
 
-    // Images rules
+    /**
+     * Image rules
+     */
     const imageRules = {
-        test: projectOptions.projectImages.rules.test,
-        use:  [
-            {
-                loader: 'file-loader',// Or `url-loader` or your other loader
-            },
-        ],
+        ...Base.imageRules, ...{
+            // add image rules for development here
+        }
     }
 
-    // Optimization rules
-    const optimizations = {};
+    /**
+     * Optimizations rules
+     */
+    const optimizations = {
+        ...Base.optimizations, ...{
+            // add optimizations rules for development here
+        }
+    }
 
-    // Plugins
+    /**
+     * Plugins
+     */
     const plugins = [
-        new WebpackBar( // Adds loading bar during builds
-            // Uncomment this to enable profiler https://github.com/nuxt-contrib/webpackbar#options
-            // { reporters: [ 'profile' ], profile: true }
-        ),
-        new MiniCssExtractPlugin( { // Extracts CSS files
-            filename: projectOptions.projectCss.filename
-        } ),
-        new CopyPlugin( { // Copies images from src to public
-            patterns: [ { from: projectOptions.projectImagesPath, to: projectOptions.projectOutput + '/images' }, ],
-        } ),
-        new ImageMinimizerPlugin( { // Optimizes images
-            minimizerOptions: projectOptions.projectImages.minimizerOptions,
-        } ),
-    ];
-
-    // Add browserSync to plugins if enabled
-    if ( projectOptions.browserSync.enable === true ) {
-        const browserSyncOptions = {
-            files: projectOptions.browserSync.files,
-            host:  projectOptions.browserSync.host,
-            port:  projectOptions.browserSync.port,
-        }
-        if ( projectOptions.browserSync.mode === 'server' ) {
-            Object.assign( browserSyncOptions, { server: projectOptions.browserSync.server } )
-        } else {
-            Object.assign( browserSyncOptions, { proxy: projectOptions.browserSync.proxy } )
-        }
-        plugins.push( new BrowserSyncPlugin( browserSyncOptions, { reload: projectOptions.browserSync.reload } ) )
-    }
+        ...Base.plugins, ...[
+            // add plugins for development here
+        ]
+    ]
     // Add eslint to plugins if enabled
     if ( projectOptions.projectJs.eslint === true ) {
         plugins.push( new ESLintPlugin() )
@@ -106,7 +71,9 @@ module.exports = ( projectOptions ) => {
         plugins.push( new StylelintPlugin() )
     }
 
-    // Add sourcemap if enabled
+    /***
+     * Add sourcemap for development if enabled
+     */
     const sourceMap = { devtool: false };
     if ( projectOptions.projectSourceMaps.enable === true && (
         projectOptions.projectSourceMaps.env === 'dev' || projectOptions.projectSourceMaps.env === 'dev-prod'
@@ -114,7 +81,9 @@ module.exports = ( projectOptions ) => {
         sourceMap.devtool = projectOptions.projectSourceMaps.devtool;
     }
 
-    // The configuration that's being returned to Webpack
+    /**
+     * The configuration that's being returned to Webpack
+     */
     return {
         mode:         'development',
         entry:        projectOptions.projectJs.entry, // Define the starting point of the application.
