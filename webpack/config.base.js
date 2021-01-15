@@ -2,7 +2,7 @@
  * This holds the configuration that is being used for both development and production.
  * This is being imported and extended in the config.development.js and config.production.js files
  *
- * @since 1.0.0
+ * @since 1.1.0
  */
 const magicImporter        = require( 'node-sass-magic-importer' ); // Add magic import functionalities to SASS
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ); // Extracts the CSS files into public/css
