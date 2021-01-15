@@ -1,4 +1,4 @@
-# WordPress Webpack v5 Workflow
+# WordPress Webpack v5 Modern Front-end Workflow (2021)
 
 ![WebPack 5.12.3](https://img.shields.io/badge/WebPack-5.12.3-brightgreen)
 ![Babel 7.12.10](https://img.shields.io/badge/Babel-7.12.10-brightgreen)
@@ -136,14 +136,14 @@ ____
    suite your needs
    
 ### Work with Sass+PostCSS or PostCSS-only
-In `webpack.config.js` you can choose to work with Sass and use PostCSS only for the autoprefixer function or go full PostCSS (without sass); In that case `sass` needs to be configured to `postcss`.  
+In `webpack.config.js` you can choose to work with Sass, and use PostCSS only for the autoprefixer function or go full PostCSS (without sass); In that case `sass` needs to be configured to `postcss`.  
 
 ```js
     projectCss: {
         use: 'sass' // sass || postcss
     }
 ```
-Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS is great for tons of reasons, but I do believe there are projects where you're better off using Sass(+Bootstrap), though it's a personal preference; therefore I left the ability to change between Sass+PostCSS or PostCSS-only.
+Working with PostCSS-only is beneficial when you work with TailwindCSS for example. You can read more about that here: https://tailwindcss.com/docs/using-with-preprocessors#using-post-css-as-your-preprocessor. Using TailwindCSS as a utility-first css framework is great for tons of reasons, but I do believe there are projects where you're better off using Sass(+Bootstrap), though it's a personal preference; therefore I left the ability to change between Sass+PostCSS or PostCSS-only.
 
 When using PostCSS-only, you also need to change the import rule in `assets/src/js/frontend.js` & `assets/src/js/backend.js` to import a `.css` or `.pcss` file instead of a `.scss` file.
 ```js

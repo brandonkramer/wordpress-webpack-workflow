@@ -23,7 +23,7 @@ module.exports = ( projectOptions ) => {
             plugins: [
                 // Extend postcss-import path resolver to allow glob usage as a path.
                 // https://github.com/dimitrinicolas/postcss-import-ext-glob
-                require('postcss-import-ext-glob'),
+                require( 'postcss-import-ext-glob' ),
                 // This plugin can consume local files, node modules or web_modules
                 // https://github.com/postcss/postcss-import
                 require( 'postcss-import' ),

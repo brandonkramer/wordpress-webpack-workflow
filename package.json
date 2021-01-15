@@ -21,8 +21,8 @@
     "dev:watch": "webpack --env NODE_ENV=development --watch",
     "eslint": "eslint assets/src/js/**/*.js",
     "eslint:fix": "eslint assets/src/js/**/*.js --fix",
-    "stylelint": "stylelint assets/src/sass/**/*.{css,scss}",
-    "stylelint:fix": "stylelint assets/src/sass/**/*.{css,scss} --fix",
+    "stylelint": "stylelint assets/src/**/**/*.{css,scss,pcss}",
+    "stylelint:fix": "stylelint assets/src/**/**/*.{css,scss,pcss} --fix",
     "prettier": "prettier --check assets/src/js/**/*.js",
     "prettier:fix": "prettier --write assets/src/js/**/*.js",
     "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-webpack.pot' --package 'wordpress-webpack' --domain 'wordpress-webpack-text-domain' --last-translator '{{author_name}} <{{author_email}}>' --team '{{author_name}} <{{author_email}}>' --bug-report '{{author_url}}'"
