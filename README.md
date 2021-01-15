@@ -124,7 +124,7 @@ ____
 └──assets
     ├── src                      # Holds all the source files
     │   ├── images               # Uncompressed images
-    │   ├── scss/pcss            # Holds the SCSS/PostCSS files
+    │   ├── scss/pcss            # Holds the Sass/PostCSS files
     │   │ ├─ frontend.scss/pcss  # For front-end styling
     │   │ └─ backend.scss/pcss   # For back-end / wp-admin styling
     │   └── js                   # Holds the JS files
