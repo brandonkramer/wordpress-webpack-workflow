@@ -22,7 +22,7 @@ processor, WPPot, an organized config & file structure and more.
 
 ## Quickstart
 
-![Image](https://media2.giphy.com/media/aY0fJxPJ5vwa6Evy2a/giphy.gif)
+![Image](https://media.giphy.com/media/wpdTw8x0LgphOzSkUb/source.gif)
 
 ```bash
 # 1-- Run the npx script to get the files
