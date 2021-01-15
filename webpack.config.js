@@ -52,7 +52,7 @@ const projectFiles = {
         use:       'sass', // sass || postcss
         // ^ If you want to change from Sass to PostCSS or PostCSS to Sass then you need to change the
         // styling files which are being imported in "assets/src/js/frontend.js" and "assets/src/js/backend.js".
-        // So change "import '../postcss/backend.scss'" to "import '../postcss/backend.pcss'" for example
+        // So change "import '../sass/backend.scss'" to "import '../postcss/backend.pcss'" for example
         rules:    {
             sass:    {
                 test: /\.s[ac]ss$/i
