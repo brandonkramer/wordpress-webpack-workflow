@@ -27,9 +27,8 @@ processor, WPPot, an organized config & file structure and more.
 ```bash
 # 1-- Run the npx script to get the files
 npx wp-strap webpack
-# 2-- Fill in the details for your POT file in the terminal
-# 3-- Edit the BrowserSync settings in `webpack.config.js` if you want to make use of it
-# 4-- Start your npm build workflow with one of these commands:
+# 2-- Edit the BrowserSync settings in `webpack.config.js` if you want to utilise it
+# 3-- Start your npm build workflow with one of these commands:
 yarn dev 
 yarn dev:watch
 yarn prod
